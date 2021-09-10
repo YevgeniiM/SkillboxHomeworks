@@ -16,10 +16,9 @@ import (
 func main() {
 	var a, b int16
 	var multiplicationResult int32
-	fmt.Println("")
+	fmt.Println("Введите два числа в формате int16:")
 	_, _ = fmt.Scanf("%d,%d", &a, &b)
 	multiplicationResult = int32(a) * int32(b)
-	fmt.Println("", multiplicationResult)
 
 	switch {
 	case multiplicationResult <= math.MaxUint8 && multiplicationResult >= 0:
