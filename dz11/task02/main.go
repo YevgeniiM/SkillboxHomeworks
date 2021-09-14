@@ -27,5 +27,5 @@ func main() {
 			result += s1 + " "
 		}
 	}
-	fmt.Print(result)
+	fmt.Println(result)
 }
