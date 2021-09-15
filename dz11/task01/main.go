@@ -8,8 +8,8 @@ import (
 func main() {
 	var endWord1, endWord2, minEndWord, numb int
 	var s, s1, s2 string
-	//s = "Go is an Open source programming Language that makes it Easy to build simple, reliable, and efficient Software"
-	s = "    "
+	s = "Go is an Open source programming Language that makes it Easy to build simple, reliable, and efficient Software"
+	//s = "    "
 	s = strings.Trim(s, " ,")
 	fmt.Println(s)
 
