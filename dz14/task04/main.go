@@ -9,24 +9,31 @@ import "fmt"
 Функции, должны прибавлять к поданном на вход числу глобальную переменную и возвращать результат.
 Затем вызвать по очереди три функции, передавая результат из одной в другую.
 */
-var global = 3.14
+var global1, global2, global3 = 3.14, 5.12, 4.65
 
 func f1(n float64) (a float64) {
-	a = n + global
+	a = n + global1 + global2
+	fmt.Printf("%.3f\n", a)
 	return
 }
 func f2(n float64) (a float64) {
-	a = n + global
+	a = n + global1 + global3
+	fmt.Printf("%.3f\n", a)
 	return
 }
 func f3(n float64) (a float64) {
-	a = n + global
+	a = n + global2 + global3
+	fmt.Printf("%.3f\n", a)
 	return
 }
 func main() {
 	fmt.Println("Введите число:")
 	var number float64
 	_, _ = fmt.Scan(&number)
-	number = f3(f2(f1(number)))
-	fmt.Printf("Трижды прибавив глобальное число 3,14 к исходному получим: %.3f\n", number)
+	fmt.Println("================")
+	f1(number) // запусуаем функции
+	f2(number)
+	f3(number)
+	number = f3(f2(f1(number))) // вызываем по очереди три функции, передавая результат из одной в другую.
+	fmt.Printf("Запустив функции по очереди получим: %.3f\n", number)
 }
