@@ -14,7 +14,6 @@ func little2(x *int) {
 func big(x *int, little1 func(*int), little2 func(*int)) {
 	little2(x)
 	little1(x)
-
 }
 
 func main() {
