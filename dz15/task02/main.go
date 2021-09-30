@@ -11,8 +11,10 @@ import "fmt"
 */
 func arrayRevers(array1 [10]int) (array2 [10]int) {
 	for i, r := range array1 {
-		array2[9-i] = r
-		fmt.Printf("Записываем значение елемента масива array1[%v] равное %v в елемента масива array2[%v]\n", i, r, 9-i)
+		reversPosition := len(array2) - 1 - i // определяем обратную позицию
+		array2[reversPosition] = r
+
+		fmt.Printf("Записываем значение елемента масива array1[%v] равное %v в елемента масива array2[%v]\n", i, r, reversPosition)
 	}
 	return
 }
