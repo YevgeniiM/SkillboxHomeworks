@@ -2,12 +2,12 @@ package main
 
 import "fmt"
 
-func sortBubble(arrayFoSort [6]int) [6]int {
+func sortBubble(arrayForSort [6]int) [6]int {
 	var k int
-	for j := 1; j <= len(arrayFoSort); j++ {
-		for i := 0; i < len(arrayFoSort)-j; i++ {
-			if arrayFoSort[i] > arrayFoSort[i+1] {
-				arrayFoSort[i], arrayFoSort[i+1] = arrayFoSort[i+1], arrayFoSort[i]
+	for j := 1; j <= len(arrayForSort); j++ {
+		for i := 0; i < len(arrayForSort)-j; i++ {
+			if arrayForSort[i] > arrayForSort[i+1] {
+				arrayForSort[i], arrayForSort[i+1] = arrayForSort[i+1], arrayForSort[i]
 				k++ // метка для определения количества замен за проход
 			}
 		}
@@ -17,7 +17,7 @@ func sortBubble(arrayFoSort [6]int) [6]int {
 		k = 0
 
 	}
-	return arrayFoSort
+	return arrayForSort
 }
 
 func main() {
