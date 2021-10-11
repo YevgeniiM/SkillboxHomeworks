@@ -21,13 +21,21 @@ func main() {
 		m[i] = rand.Intn(100)
 	}
 	fmt.Println(m)
-	var number, numberAfter int
+	var number int
+	numberAfter := -1
 	fmt.Println("Введите число:")
 	_, _ = fmt.Scanln(&number)
+
 	for i := 0; i < len(m); i++ {
 		if number == m[i] {
 			numberAfter = len(m) - 1 - i
 		}
 	}
-	fmt.Printf("После числа %d в массиве находится %d чисел", number, numberAfter)
+	if numberAfter == -1 {
+		fmt.Printf("Числа %d в массиве нет", number)
+
+	} else {
+
+		fmt.Printf("После числа %d в массиве находится %d чисел", number, numberAfter)
+	}
 }
