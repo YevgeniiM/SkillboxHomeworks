@@ -16,17 +16,13 @@ func makeEvenOddM(m []int) ([]int, []int) {
 	sizeEven := len(m)
 
 	for i := 0; i < sizeEven; i++ {
-
 		if m[i]%2 == 0 {
 			sizeOdd++
 			sizeEven = len(m) - sizeOdd
 			m[sizeEven], m[i] = m[i], m[sizeEven]
 			i--
 		}
-
 	}
-	//fmt.Println(sizeOdd)
-
 	if sizeOdd == 0 {
 		return nil, m
 	} else if sizeOdd == len(m) {
@@ -34,10 +30,23 @@ func makeEvenOddM(m []int) ([]int, []int) {
 	} else {
 		return m[:sizeEven], m[sizeEven:]
 	}
-
 }
+
+func enteringValueArrayFromConsole() []int {
+	var value, size int
+	fmt.Println("Введите размер массива:")
+	_, _ = fmt.Scanln(&size)
+	output := make([]int, size)
+	for i := 0; i < size; i++ {
+		fmt.Print("Введите целочисленное значение массива:")
+		_, _ = fmt.Scanln(&value)
+		output[i] = value
+	}
+	return output
+}
+
 func main() {
-	m := []int{21, 4, 87, 61, 24, 847, 1, 45, 14}
+	m := enteringValueArrayFromConsole()
 	fmt.Println(m)
 	//n := len(m)
 
