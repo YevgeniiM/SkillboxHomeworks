@@ -1,7 +1,9 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 	"strconv"
 	"strings"
 )
@@ -19,8 +21,9 @@ const (
 	sizeRune   = 2
 )
 
-func parseTest(sentences [sizeString]string, chars [sizeRune]rune) (m [sizeString][sizeRune]string) {
+func parseTest(sentences [sizeString]string, chars [sizeString]rune) (m [sizeString][sizeString]string) {
 	var a, b string
+
 	for i := 0; i < len(sentences); i++ {
 		for j := 0; j < len(chars); j++ {
 			a = strings.ToLower(sentences[i])
@@ -32,9 +35,30 @@ func parseTest(sentences [sizeString]string, chars [sizeRune]rune) (m [sizeStrin
 	return
 }
 
+func enteringValueArrayFromConsole() (output1 [sizeString]string, output2 [sizeString]rune) {
+	var value string
+
+	for i := 0; i < sizeString; i++ {
+		fmt.Println("Введите строку массива sentences:")
+		scanner := bufio.NewScanner(os.Stdin)
+		scanner.Scan()
+		output1[i] = scanner.Text()
+	}
+	for i := 0; i < sizeRune; i++ {
+		fmt.Println("Введите литеру массива chars:")
+		_, _ = fmt.Scan(&value)
+		//fmt.Println(a)
+		for _, output2[i] = range value {
+		}
+	}
+	fmt.Println(output1)
+	fmt.Printf("%c\n", output2)
+	return output1, output2
+}
+
 func main() {
-	sentences := [sizeString]string{"qwerty Qwerty", "Sentences string q"}
-	chars := [sizeRune]rune{'s', 'Q'}
+	sentences, chars := enteringValueArrayFromConsole()
+	//enteringValueArrayFromConsole()
 
 	m := parseTest(sentences, chars)
 	fmt.Println(m)
