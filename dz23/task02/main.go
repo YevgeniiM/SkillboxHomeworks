@@ -16,35 +16,53 @@ import (
 в предложении i (строку надо разбить на слова и взять последнее). То есть сигнатура следующая:
 func parseTest(sentences []string, chars []rune)
 */
-const (
-	sizeString = 2
-	sizeRune   = 2
-)
+//const (
+//	sizeString = 2
+//	sizeRune   = 2
+//)
 
-func parseTest(sentences [sizeString]string, chars [sizeString]rune) (m [sizeString][sizeString]string) {
+func parseTest(sentences []string, chars []rune) [][]string {
 	var a, b string
+	var lo, hi int
+	s := make([]string, len(chars)*len(chars))
+
+	m := make([][]string, len(sentences))
 
 	for i := 0; i < len(sentences); i++ {
+		a = strings.ToLower(sentences[i])
 		for j := 0; j < len(chars); j++ {
-			a = strings.ToLower(sentences[i])
+			hi = j + len(chars)*i
 			b = strings.ToLower(string(chars[j]))
 			index := strings.LastIndex(a, b)
-			m[i][j] = string(chars[j]) + " position " + strconv.Itoa(index)
+			if index >= 0 {
+				s[hi] = string(chars[j]) + " position " + strconv.Itoa(index)
+			}
 		}
+		m[i] = s[lo : hi+1]
+		lo += len(chars)
 	}
-	return
+	return m
 }
 
-func enteringValueArrayFromConsole() (output1 [sizeString]string, output2 [sizeString]rune) {
+func enteringValueArrayFromConsole() ([]string, []rune) {
 	var value string
+	var size int
 
-	for i := 0; i < sizeString; i++ {
+	fmt.Println("Введите размер массива строк sentences:")
+	_, _ = fmt.Scan(&size)
+	output1 := make([]string, size)
+
+	for i := 0; i < size; i++ {
 		fmt.Println("Введите строку массива sentences:")
 		scanner := bufio.NewScanner(os.Stdin)
 		scanner.Scan()
 		output1[i] = scanner.Text()
 	}
-	for i := 0; i < sizeRune; i++ {
+	fmt.Println("Введите размер массива литер chars:")
+	_, _ = fmt.Scan(&size)
+	output2 := make([]rune, size)
+
+	for i := 0; i < size; i++ {
 		fmt.Println("Введите литеру массива chars:")
 		_, _ = fmt.Scan(&value)
 		//fmt.Println(a)
