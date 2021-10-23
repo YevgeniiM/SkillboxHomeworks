@@ -35,7 +35,7 @@ func parseTest(sentences []string, chars []rune) [][]string {
 			b = strings.ToLower(string(chars[j]))
 			index := strings.LastIndex(a, b)
 			if index >= 0 {
-				s[hi] = string(chars[j]) + " position " + strconv.Itoa(index)
+				s[hi] = "'" + string(chars[j]) + "'" + " position " + strconv.Itoa(index)
 			}
 		}
 		m[i] = s[lo : hi+1]
