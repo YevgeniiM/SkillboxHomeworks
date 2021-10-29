@@ -12,25 +12,9 @@ import (
  go run main.go --str "строка для поиска" --substr "поиска"
 Для реализации такой работы с флагами воспользуйтесь пакетом flags, а для поиска подстроки в строке вам понадобятся руны.
 **/
-func main() {
-	var str, substr string
-
-	flag.StringVar(&str, "str", "", "set str")
-	flag.StringVar(&substr, "substr", "", "set substr")
-
-	flag.Parse()
-
-	fmt.Println(str, substr)
-	//str = "ffsdfdf"
-	//substr = ""
-
-	if str == "" || substr == "" {
-		fmt.Println("Error! нельзя сравнивать пустые строки")
-		return
-	}
-	var result = false
-	strRune := []rune(str)
-	substrRune := []rune(substr)
+func stringComparison(a string, b string) (result bool) {
+	strRune := []rune(a)
+	substrRune := []rune(b)
 
 	for i, r := range strRune {
 		if substrRune[0] == r {
@@ -47,5 +31,23 @@ func main() {
 			}
 		}
 	}
-	fmt.Println(result)
+	return
+}
+func main() {
+	var str, substr string
+
+	flag.StringVar(&str, "str", "", "set str")
+	flag.StringVar(&substr, "substr", "", "set substr")
+
+	flag.Parse()
+
+	fmt.Println(str, substr)
+	//str = "ffsdfdf"
+	//substr = ""
+
+	if str == "" || substr == "" {
+		fmt.Println("Error! нельзя сравнивать пустые строки")
+		return
+	}
+	fmt.Println(stringComparison(str, substr))
 }
