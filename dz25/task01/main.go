@@ -21,9 +21,17 @@ func main() {
 	flag.Parse()
 
 	fmt.Println(str, substr)
+	//str = "ffsdfdf"
+	//substr = ""
+
+	if str == "" || substr == "" {
+		fmt.Println("Error! нельзя сравнивать пустые строки")
+		return
+	}
 	var result = false
 	strRune := []rune(str)
 	substrRune := []rune(substr)
+
 	for i, r := range strRune {
 		if substrRune[0] == r {
 			result = true
