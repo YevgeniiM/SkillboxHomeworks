@@ -11,10 +11,10 @@ import "fmt"
 
 func main() {
 
-	m := []int{3, 8, 7, 6, 9, 1, 8, 9}
+	m := []int{3, 8, 7, 6, 1, 9, 11}
 	fmt.Println(m)
 
-	sortInvertedM := func(m []int) {
+	sortInvertedM := func(m []int) /*[]int */ {
 		for i := len(m); i > 0; i-- {
 			for j := 1; j < i; j++ {
 				if m[j-1] < m[j] {
@@ -22,9 +22,11 @@ func main() {
 				}
 			}
 		}
+		//return m
 	}
 	sortInvertedM(m)
 	fmt.Println("----------------")
 	fmt.Println(m)
+	//fmt.Println(sortInvertedM(m))
 
 }
