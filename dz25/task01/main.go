@@ -33,6 +33,7 @@ func stringComparison(a string, b string) (result bool) {
 	}
 	return
 }
+
 func main() {
 	var str, substr string
 
@@ -42,8 +43,6 @@ func main() {
 	flag.Parse()
 
 	fmt.Println(str, substr)
-	//str = "ffsdfdf"
-	//substr = ""
 
 	if str == "" || substr == "" {
 		fmt.Println("Error! нельзя сравнивать пустые строки")
