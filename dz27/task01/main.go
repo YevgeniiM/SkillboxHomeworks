@@ -27,7 +27,7 @@ func (p *Student) put(s string, a int, g int) {
 	p.grade = g
 }
 func (p *Student) get() {
-	fmt.Printf("Student name %8s age %3d grade %d \n", p.name, p.age, p.grade)
+	fmt.Printf("Имя студента %8s; его возраст %3d; курс %d \n", p.name, p.age, p.grade)
 }
 func newStudent(m map[string]*Student) error {
 	var name string
