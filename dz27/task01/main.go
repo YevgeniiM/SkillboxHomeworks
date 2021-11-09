@@ -55,7 +55,7 @@ func main() {
 			m[v].get()
 		}
 	} else if err != nil {
-		fmt.Print(err)
+		fmt.Println(err)
 	}
 
 }
