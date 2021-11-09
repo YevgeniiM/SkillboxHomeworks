@@ -33,7 +33,7 @@ func newStudent(m map[string]*Student) error {
 	var name string
 	var age, grade int
 
-	for i := 0; i < 10; i++ {
+	for {
 
 		fmt.Print("Введите имя, возраст и курс студента:\n")
 		_, err := fmt.Fscan(os.Stdin, &name, &age, &grade)
