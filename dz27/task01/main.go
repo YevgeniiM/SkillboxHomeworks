@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io"
+	"log"
 	"os"
 )
 
@@ -55,7 +56,7 @@ func main() {
 			m[v].get()
 		}
 	} else if err != nil {
-		fmt.Println(err)
+		log.Fatal(err)
 	}
 
 }
