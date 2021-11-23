@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
 	"strconv"
 	"strings"
 
@@ -13,7 +14,20 @@ type familyBudget map[string]int64
 
 var bd = map[int]familyBudget{}
 
-func budget() {
+func budget(userId int) {
+	message := ""
+	f, err := os.Create("familyBudget.txt")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	defer f.Close()
+	for k, v := range bd[userId] {
+		message += fmt.Sprintf("%s %v грн. \n", k, v)
+
+	}
+	f.WriteString(message)
+	//bot.Send(tgbotapi.NewMessage(update.Message.Chat.ID, message1))
 
 }
 
@@ -42,6 +56,7 @@ func main() {
 		var userId int
 		command = strings.Split(update.Message.Text, " ")
 		userId = update.Message.From.ID
+
 		switch command[0] {
 		case "категорії":
 			message1 = ""
@@ -70,6 +85,7 @@ func main() {
 				bot.Send(tgbotapi.NewMessage(update.Message.Chat.ID, "не верный ввод! добавляемая сумма должна быть целым числом"))
 			} else {
 				bd[userId][command[1]] += sum
+				budget(userId)
 			}
 
 		case "видалити":
